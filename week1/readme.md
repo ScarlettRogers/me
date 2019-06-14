@@ -18,4 +18,4 @@ To run, press F5 on keyboard - Debug current file
 
 Write stuff in the ReadMe file (journal) 
 
-Go --> Push, pushes week1s stuff to github??
+Go --> Push, pushes week1s stuff to github???
