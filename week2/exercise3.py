@@ -7,8 +7,12 @@ def is_odd(a_number):
 
     Look into modulo division using the '%' operator as one way of doing this.
     """
-    return None
-
+    if a_number%2 != 0: 
+       ans0 = True
+    else:
+        ans0 = False
+    
+    return ans0
 
 def fix_it(moves=True, should_move=True):
     """Decide what to do.
@@ -25,8 +29,22 @@ def fix_it(moves=True, should_move=True):
     Most people write this function with 4 return statements. 
     As an extra challenge, see if you can get that down to three.
     """
-    return None
+# Wanted to see if line 33 would work
+#    if moves == True and should_move == True or moves == False and should_move == False: 
+#        ans1 = "No Problem"
+#    elif moves == False and should_move == True:
+#        ans1 = "WD-40"
+#    else:
+#        ans1 = "Duct Tape"
 
+    if moves == True and should_move == False:
+        ans1 = "Duct Tape"
+    elif moves == False and should_move == True:
+        ans1 = "WD-40"
+    else:
+        ans1 = "No Problem"
+    
+    return ans1
 
 def loops_1a():
     """Make 10 stars.
@@ -35,8 +53,11 @@ def loops_1a():
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
-    return None
-
+    l = []
+    star = '*'
+    for i in range(10):
+        l.append(star)
+    return l
 
 def loops_1c(number_of_items=5, symbol="#"):
     """Respond to variables.
@@ -45,7 +66,10 @@ def loops_1c(number_of_items=5, symbol="#"):
     string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    return None
+    l = []
+    for i in range(number_of_items):
+        l.append(symbol)
+    return l
 
 
 def loops_2():
@@ -66,8 +90,14 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    return None
-
+    a = '*'
+    l = []
+    m = []
+    for i in range(10):
+        l.append(a)
+    for i in range(10):
+        m.append(l)
+    return m
 
 def loops_3():
     """Make a rising block of numbers.
@@ -90,8 +120,12 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    return None
-
+    c = []
+    for i in range(10):
+        l = [[str(i)]*10 for i in range(10)]
+#   print (l)
+#   b = [a[i:i+10] for i in range(0, len(1), 10)] Note to self, look at beginning of line and research yield
+    return l
 
 def loops_4():
     """Make a block of numbers that rises left to right.
@@ -110,7 +144,13 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    return None
+    l = []
+    li = []
+    for i in range(10):
+        l.append(str(i))
+    for i in range(10):
+        li.append(l)
+    return li
 
 
 def loops_5():
@@ -137,8 +177,26 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    return None
+    thelist = []
 
+    for i in range(10):
+        sublist = []
+        for j in range(5):
+            sublist.append('(i{}, j{})'.format(i,j))
+        thelist.append(sublist)
+    return thelist
+
+#    n=5
+#    l=4
+#    for i in range(0, len(l), n):  
+#        yield l[i:i + n]
+#    b = list(thelist, n)
+#    b = [thelist[i:i+5] for i in range(0, 1, 5)]
+        
+#    for i in range(10):
+#        a = '(i{}, j{})'.format(i,0)
+#        for j in range(5):
+#            li.append(a)
 
 def loops_6():
     """Make a wedge of numbers.
@@ -160,8 +218,13 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    return None
-
+    thelist = []
+    for i in range(10):
+        sublist = []
+        for j in range(i+1):
+            sublist.append('{}'.format(j))
+        thelist.append(sublist)
+    return thelist
 
 def loops_7():
     """Make a pyramid.
@@ -184,7 +247,30 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    return None
+    thelist = []
+    n = 5 #number of rows
+    k = 9 #number of columns
+    for i in range (5):
+        sublist = []
+        for j in range (9):
+            sublist.append(' ')
+        thelist.append(sublist)
+    for i in range (5):
+        start = 4 - i
+        end = 5 + i
+        for j in range(start, end):
+            thelist[i][j] = '*'
+    return thelist
+#    l0 = []
+#    star = '*'
+#    blank = ' '
+#    for i in range(9):
+#        l0.append(blank)
+#    for j in range(5):
+#        del l0[j]
+#        l0.insert(j, star)
+#    print (l0)
+        
 
 
 def lp(some_kind_of_list, exercise_name):
