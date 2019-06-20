@@ -35,7 +35,7 @@ def usefulFunction():
     # system, node, release, version, machine, and processor."
     # 
     # returns the 6 attributes in relation to the machine it's being run on?
-    # e.g. operating system, node(no idea what this is?), model of computer, processor type, etc
+    # e.g. operating system, node(no idea what this is?), model of computer, processor type, etc 
 
     print(platform.uname()) # same as assumption
 

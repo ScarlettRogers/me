@@ -70,3 +70,6 @@ def add_1(a_number):
 add_1 = technically a variable, but a function in this context
 
 always return given values
+
+
+Note to self: make function/value/etc dictionary?

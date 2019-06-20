@@ -259,7 +259,7 @@ def loops_7():
         start = 4 - i
         end = 5 + i
         for j in range(start, end):
-            thelist[i][j] = '*'
+            thelist[i][j] = '*' #[i][j] are the coordinates of the stars
     return thelist
 #    l0 = []
 #    star = '*'

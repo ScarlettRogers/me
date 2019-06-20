@@ -3,7 +3,7 @@
 This file doesn't run yet.
 Go through it and change it until it runs.
 Remeber that all files must also pass the
-linter with no errors or warnings!
+linter with no errors or warnings! 
 """
 
 import string
