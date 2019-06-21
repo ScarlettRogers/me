@@ -250,17 +250,25 @@ def loops_7():
     thelist = []
     n = 5 #number of rows
     k = 9 #number of columns
-    for i in range (5):
+    for i in range(5):
         sublist = []
-        for j in range (9):
+        for j in range(9):
             sublist.append(' ')
         thelist.append(sublist)
-    for i in range (5):
+    for i in range(5):
         start = 4 - i
         end = 5 + i
         for j in range(start, end):
             thelist[i][j] = '*' #[i][j] are the coordinates of the stars
     return thelist
+
+#sublist1 = []
+#thelist1 = []
+#    for i in range(5):
+#        sublist1.append('a')
+#    for i in range(5):
+#        thelist1.insert(3)
+
 #    l0 = []
 #    star = '*'
 #    blank = ' '
