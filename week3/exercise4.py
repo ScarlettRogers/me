@@ -28,8 +28,8 @@ def binary_search(low, high, actual_number):
     guess = 0
     dictionary = {"guess": guess, "tries": tries}
     guessed_number = 0
+#    print(actual_number)
     while not guessed and tries<20:
-        tries = tries + 1
         guessed_number = low + int((high-low)/2)
 #        print(str(low) + ", " + str(high) + ", " + str(guessed_number))
         print(guessed_number)
@@ -40,6 +40,7 @@ def binary_search(low, high, actual_number):
             high = guessed_number
         else:
             low = guessed_number
+        tries = tries + 1
     dictionary.update(tries = tries)
     dictionary.update(guess = guessed_number)
     return dictionary
@@ -94,3 +95,6 @@ if __name__ == "__main__":
     print(binary_search(1, 100, 95))
     print(binary_search(1, 51, 5))
     print(binary_search(1, 50, 5))
+    print(binary_search(0, 100, 87))
+    print(binary_search(0, 100, 77))
+    print(binary_search(0, 100, 74))
