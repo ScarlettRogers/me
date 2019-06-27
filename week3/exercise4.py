@@ -24,20 +24,15 @@ def binary_search(low, high, actual_number):
     things much easier.
     """
     guessed = False
-    tries = 1
+    tries = 0
     guess = 0
     dictionary = {"guess": guess, "tries": tries}
-    high = int(high)
-    low = int(low)
-    last_number = 0
     guessed_number = 0
     while not guessed and tries<20:
         tries = tries + 1
-        last_number = guessed_number
-        guessed_number = int(high/2)
-        if guessed_number < low:
-            guessed_number = low
-        print(str(low) + ", " + str(high) + ", " + str(guessed_number))
+        guessed_number = low + int((high-low)/2)
+#        print(str(low) + ", " + str(high) + ", " + str(guessed_number))
+        print(guessed_number)
         if guessed_number == actual_number:
             guess = guessed_number
             guessed = True
@@ -45,8 +40,9 @@ def binary_search(low, high, actual_number):
             high = guessed_number
         else:
             low = guessed_number
-
-
+    dictionary.update(tries = tries)
+    dictionary.update(guess = guessed_number)
+    return dictionary
 """        elif actual_number < guessed_number:
 
         elif actual_number > guessed_number:
@@ -65,10 +61,13 @@ def binary_search(low, high, actual_number):
             print(guessed_number)
             guessed_number = (guessed_number-last_number) + guessed_number
             tries = tries + 1"""
-
+#        if guessed_number == low:
+##            guessed_number = guessed_number + 1
+#        if guessed_number == high:
+#            guessed_number = guessed_number - 1
 
     #Hello to any marker reading this
-    #Please ignore the commented out area, it was half-done on very little sleep. 
+    #Please ignore the commented out area
     #For some reason I don't want to get rid of it, so it's going to sit there. (I did use it as a basis for the final)
     #tries = 0
     #guess = 0
@@ -91,7 +90,7 @@ def binary_search(low, high, actual_number):
 
 if __name__ == "__main__":
     print(binary_search(1, 100, 5))
-"""    print(binary_search(1, 100, 6))
+    print(binary_search(1, 100, 6))
     print(binary_search(1, 100, 95))
     print(binary_search(1, 51, 5))
-    print(binary_search(1, 50, 5))"""
+    print(binary_search(1, 50, 5))
