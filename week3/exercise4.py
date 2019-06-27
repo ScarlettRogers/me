@@ -52,7 +52,8 @@ def binary_search(low, high, actual_number):
             print(guessed_number)
         else:
             None
-    return dictionary"""
+    return dictionary
+    """
 
 """        elif actual_number in range(low, guessed_number):
             print(guessed_number)
