@@ -23,32 +23,75 @@ def binary_search(low, high, actual_number):
     Use the VS Code debugging tools a lot here. It'll make understanding 
     things much easier.
     """
-    """
-    tries = 0
+    guessed = False
+    tries = 1
     guess = 0
     dictionary = {"guess": guess, "tries": tries}
-    while low<actual_number<high:
-        mid = int(high)//2
+    high = int(high)
+    low = int(low)
+    last_number = 0
+    guessed_number = 0
+    while not guessed and tries<20:
+        tries = tries + 1
+        last_number = guessed_number
+        guessed_number = int(high/2)
+        if guessed_number < low:
+            guessed_number = low
+        print(str(low) + ", " + str(high) + ", " + str(guessed_number))
+        if guessed_number == actual_number:
+            guess = guessed_number
+            guessed = True
+        elif actual_number in range(low, guessed_number):
+            high = guessed_number
+        else:
+            low = guessed_number
 
 
+"""        elif actual_number < guessed_number:
 
-        while actual_number in range(low, mid):
-            high = math.ceil(int(mid))
+        elif actual_number > guessed_number:
             tries = tries + 1
-        while actual_number in range(mid,high):
-            low = math.ceil(int(mid))
-            tries = tries + 1
-        if mid == actual_number:
-            dictionary["guess"] = mid
-            dictionary["tries"] = tries
-            return dictionary
-            break
+            guessed_number = int(guessed_number) + int(guessed_number/2) + (guessed_number%2>0)
+            print(guessed_number)
         else:
             None
-"""
+    return dictionary"""
+
+"""        elif actual_number in range(low, guessed_number):
+            print(guessed_number)
+            guessed_number = int(guessed_number/2) + (guessed_number%2>0)
+            tries = tries + 1
+        else:
+            print(guessed_number)
+            guessed_number = (guessed_number-last_number) + guessed_number
+            tries = tries + 1"""
+
+
+    #Hello to any marker reading this
+    #Please ignore the commented out area, it was half-done on very little sleep. 
+    #For some reason I don't want to get rid of it, so it's going to sit there. (I did use it as a basis for the final)
+    #tries = 0
+    #guess = 0
+    #dictionary = {"guess": guess, "tries": tries}
+    #while low<actual_number<high:
+    #    mid = int(high)//2
+    #    while actual_number in range(low, mid):
+    #        high = math.ceil(int(mid))
+    #        tries = tries + 1
+    #    while actual_number in range(mid,high):
+    #        low = math.ceil(int(mid))
+    #        tries = tries + 1
+    #    if mid == actual_number:
+    #        dictionary["guess"] = mid
+    #        dictionary["tries"] = tries
+    #        return dictionary
+    #        break
+    #    else:
+    #        None
+
 if __name__ == "__main__":
     print(binary_search(1, 100, 5))
-    print(binary_search(1, 100, 6))
+"""    print(binary_search(1, 100, 6))
     print(binary_search(1, 100, 95))
     print(binary_search(1, 51, 5))
-    print(binary_search(1, 50, 5))
+    print(binary_search(1, 50, 5))"""
