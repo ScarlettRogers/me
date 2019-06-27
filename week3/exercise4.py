@@ -37,9 +37,9 @@ def binary_search(low, high, actual_number):
             guess = guessed_number
             guessed = True
         elif actual_number in range(low, guessed_number):
-            high = guessed_number
+            high = guessed_number + 1
         else:
-            low = guessed_number
+            low = guessed_number - 1
         tries = tries + 1
     dictionary.update(tries = tries)
     dictionary.update(guess = guessed_number)
