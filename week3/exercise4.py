@@ -23,13 +23,15 @@ def binary_search(low, high, actual_number):
     Use the VS Code debugging tools a lot here. It'll make understanding 
     things much easier.
     """
-    
+    """
     tries = 0
     guess = 0
     dictionary = {"guess": guess, "tries": tries}
-    while actual_number:
-#        math.ceil()
-        mid = high-low
+    while low<actual_number<high:
+        mid = int(high)//2
+
+
+
         while actual_number in range(low, mid):
             high = math.ceil(int(mid))
             tries = tries + 1
@@ -40,9 +42,10 @@ def binary_search(low, high, actual_number):
             dictionary["guess"] = mid
             dictionary["tries"] = tries
             return dictionary
+            break
         else:
             None
-
+"""
 if __name__ == "__main__":
     print(binary_search(1, 100, 5))
     print(binary_search(1, 100, 6))

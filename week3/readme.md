@@ -66,3 +66,15 @@ idx = 0
 while idx < len(of_a_list):
     print(of_a_list[idx])
     idx = idx + 1
+
+	Assignment 1:
+	find an open data set at:
+	data.gov.au or data.gov or data.gov.uk
+	Pick something you know about
+	good example of what you need to do at:
+	honisoit (Sydney university's newspaper)
+		they found out that you could break sydney up into what fast food joints are able to be accessed in the area
+	these strangely map onto other social groups
+
+	last 2 years of tweets with book-related tags?
+	

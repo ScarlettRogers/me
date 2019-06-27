@@ -31,9 +31,11 @@ def lone_ranger(start, stop, step):
         l0.append(start)
         start = start + step
     return l0
-
-
-
+    l1 = []
+#    a = range(start, step, stop)
+#    l1.append(a)
+#    print(l1)
+    
 def two_step_ranger(start, stop):
     """Make a range that steps by 2.
 
@@ -71,7 +73,14 @@ def not_number_rejector(message):
     """
 #    try:
 #        n = int(message)
-    
+    while True:
+        try:
+            message.isdigit
+            return message
+        except ValueError:
+            return True
+    return message
+
 def super_asker(low, high):
     """Robust asking function.
 
@@ -80,11 +89,17 @@ def super_asker(low, high):
     Try to call at least one of the other functions to minimise the
     amount of code.
     """
-    x = 0
-    while x < low or x > high:
-        x = x+1
-    else:
-        return x
+    x = input('Number?:')
+    while True:
+        try:
+            x.isdigit
+            return x
+        except ValueError:
+            while x < low or x > high:
+                x = x+1
+            else:
+                return x
+
 
 if __name__ == "__main__":
     # this section does a quick test on your results and prints them nicely.
