@@ -177,14 +177,19 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    thelist = []
-
-    for i in range(10):
-        sublist = []
-        for j in range(5):
-            sublist.append('(i{}, j{})'.format(i,j))
+    thelist = [] # empty list
+    for i in range(10): # changing a value from 0-9
+        sublist = [] # empty list
+        for j in range(5): # changing a different value from 0-5
+            sublist.append('(i{}, j{})'.format(i,j)) # appends the string/format to a changing list
         thelist.append(sublist)
+        # this is still within the original for loop
+        # there are 5 items per minilist in the desired outcome
+        # 
     return thelist
+
+
+
 
 #    n=5
 #    l=4
