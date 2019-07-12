@@ -19,9 +19,12 @@ def do_bunch_of_bad_things():
 
     yet_another_hyp = 40 ** 2 + 30 ** 2
     print(yet_another_hyp)
+    
 
-
-
-    in the commit msg write why you committed
-    commit frequently
+    bubble sort
+    go to the first item, ask it's value, go to the second item and ask its value
+    sort based on value count
+    continue to 2nd and 3rd item
+    swap them if necessary
+    get to the end and then repeat until all values are sorted correctly
     
