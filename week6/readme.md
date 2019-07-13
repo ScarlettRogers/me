@@ -43,3 +43,20 @@ TODO: Reflect on what you learned this week and what is still unclear.
     cd tf-pose-estimation
     conda activate my_assignment1
     code .
+
+
+
+    lecture
+
+    --> Counts identical values and lists them in order under the column "name":
+    street_count = 
+    streets.groupby('name")
+    .count()
+    .sort_values(ascending=False)
+
+    --> photo from Kartin merges lines that should be continuous (the code broek the road up by intersection when it is really continuous)
+
+    shapely library can tell you how far geometry objects are from each other, using this:
+    geometry1.distance(geometry2())
+    or
+    geometry1.distance(geometry2)))
