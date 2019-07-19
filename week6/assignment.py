@@ -197,13 +197,13 @@ if __name__ == '__main__':
             # print ("MaxEyeY: " + str(MaxEyeY))
             if LWristY <= MaxEyeY and LElbowX <= LWristX and LWristX != 1:
                 hail_taxi(image)
-                print("Someone is hailing a LEFT taxi!")
+                # print("Someone is hailing a LEFT taxi!")
                 # print("LWristY: " + str(LWristY))
                 # print("LWristX: " + str(LWristX))
                 # print("LElbowX: " + str(LElbowX))
             if RWristY <= MaxEyeY and RElbowX >= RWristX:
                 hail_taxi(image)
-                print("Someone is hailing a RIGHT taxi!")
+                # print("Someone is hailing a RIGHT taxi!")
                 # print("RWristY: " + str(RWristY))
                 # print("RWristX: " + str(RWristX))
                 # print("RElbowX: " + str(RElbowX))
