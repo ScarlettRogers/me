@@ -14,7 +14,7 @@ Some functions will have directions as external comments, once you think you
 are on top of it, take these comments out. Others won't have comments and
 you'll need to figure out for yourself what to do.
 """
-
+import math
 
 
 # return a list of countdown messages, much like in the bad function above.
@@ -53,9 +53,14 @@ def countdown(message, start, stop, completion_message):
     #     "units": units,
     # }
 
+def calculate_height(height):
+    return height
+
+def calculate_base(base):
+    return base
 
 def calculate_hypotenuse(base, height):
-    hypotenuse = base ** 2 + height ** 2
+    hypotenuse = math.sqrt(base ** 2 + height ** 2)
     return hypotenuse
 
 def calculate_area(base, height):
@@ -63,18 +68,20 @@ def calculate_area(base, height):
     return area
 
 def calculate_perimeter(base, height):
-    a = calculate_hypotenuse(base, height)
-    perimeter = base*height*a
+    hypotenuse = math.sqrt(base ** 2 + height ** 2)
+    perimeter = base + height + hypotenuse
     return perimeter
 
 def calculate_aspect(base, height):
     if height>base:
-        aspect = ' long'
+        aspect = 'tall'
+    elif base>height:
+        aspect = 'wide'
     else:
-        aspect = ' short'
-    height1 = str(height)
-    base1 = str(base)
-    aspect1 = base1 + "x" + height1 + aspect
+        aspect = 'equal'
+    # height1 = str(height)
+    # base1 = str(base)
+    # aspect1 = base1 + "x" + height1 + aspect
     return aspect
 
 # tri_dict = {}
@@ -91,9 +98,19 @@ def calculate_aspect(base, height):
 
 # Make sure you reuse the functions you've already got
 # Don't reinvent the wheel
+
+triangle_dictionary = {
+    "area": calculate_area,
+    "perimeter": calculate_perimeter,
+    "height": calculate_height,
+    "base": calculate_base,
+    "hypotenuse": calculate_hypotenuse,
+    "aspect": calculate_aspect,
+    "units": 'mm',
+}
+
 def get_triangle_facts(base, height, units="mm"):
-#    return tri_dict
-    pass
+    return triangle_dictionary
 
 
 # this should return a multi line string that looks a bit like this:
@@ -147,14 +164,16 @@ def tell_me_about_this_right_triangle(facts_dictionary):
 
     # facts = pattern.format(**facts_dictionary)
 
+dictionary = get_triangle_facts
+diagram = tell_me_about_this_right_triangle
 
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
     if return_diagram and return_dictionary:
-        return None
+        return dictionary and diagram
     elif return_diagram:
-        return None
+        return diagram
     elif return_dictionary:
-        return None
+        return dictionary
     else:
         print("You're an odd one, you don't want anything!")
 
@@ -198,5 +217,5 @@ def wordy_pyramid(api_key):
 
 
 if __name__ == "__main__":
-#    do_bunch_of_bad_things()
+   do_bunch_of_bad_things()
 #     wordy_pyramid("a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
