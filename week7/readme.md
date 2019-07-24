@@ -86,3 +86,25 @@ returns...
 '7100',
 '8100',
 '9100']
+
+
+
+xls_data = pd.read_excel("Untitled spreadsheet.xlsx")
+xls_data --> runs the excel
+
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html
+
+get unnamed columns
+
+how to ignore first few rows:
+xls_data = pd.read_excel("Untitled spreadsheet.xlsx", skiprows=3)
+
+
+how to tread first column as a name:
+
+how to rename column titles
+
+
+xls_data = pd.read_excel("Untitled spreadsheet.xlsx", skiprows=3, sheet_name="Sheet2")
+idk
+
