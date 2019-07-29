@@ -36,14 +36,17 @@ def get_some_details():
     json_data = open(LOCAL + "/lazyduck.json").read()
     data = json.loads(json_data)
     dictionary = {"lastName": None, "password": None, "postcodePlusID": None}
+
     lastname = data["results"][0]["name"]["last"]
-    print(lastname)
-    password = data["results"][2]["login"][0]
-    print(password)
-    postcodePlusID = data["results"][1]["location"]["postcode"]
-    print(postcodePlusID)
-    ID = data["results"][3]["id"][0]["name"]
-    print(ID)
+    password = data["results"][0]["login"]["password"]
+    postcode = data["results"][0]["location"]["postcode"]
+    ID = data["results"][0]["id"]["value"]
+    postcodePlusID = int(postcode) + int(ID)
+
+    dictionary.update({"lastName":lastname})
+    dictionary.update({"postcodePlusID":postcodePlusID})
+    dictionary.update({"password":password})
+
     return dictionary
 
 
@@ -100,12 +103,12 @@ def pokedex(low=1, high=5):
          variable and then future access will be easier.
     """
     template = "https://pokeapi.co/api/v2/pokemon/{id}"
-
-    url = template.format(base=base, id=5)
-    r = requests.get(url)
-    if r.status_code is 200:
-        the_json = json.loads(r.text)
-    return {"name": None, "weight": None, "height": None}
+    pass
+    # url = template.format(base=base, id=5)
+    # r = requests.get(url)
+    # if r.status_code is 200:
+    #     the_json = json.loads(r.text)
+    # return {"name": None, "weight": None, "height": None}
 
 
 def diarist():

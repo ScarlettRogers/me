@@ -86,11 +86,21 @@ def abba(source="abba", guard=3):
 
                    abba
                     to
-               bbaaobaobbba
+               bbaaob aobbba
                     to
-    aobaobbbabbaoaaobbbaoaaobaobaobbba
+    aob aobbba bbaoa aobbba oaaobaob aobbba
                 and so on...
     """
+    # axiom=source
+    # parts = axiom.split(" ")
+    # result = list(map(source, parts))
+    # print(result)
+    # # new_string = " ".join(result)
+    if guard > 0:
+        return source
+    # else:
+    #     return new_string
+
     def apply_rules(letter, guard):
         """Control the substitution.
 

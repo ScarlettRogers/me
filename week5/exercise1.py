@@ -33,6 +33,14 @@ def countdown(message, start, stop, completion_message):
 
 
 
+#     "area": calculate_area,
+#     "perimeter": calculate_perimeter,
+#     "height": calculate_height,
+#     "base": calculate_base,
+#     "hypotenuse": calculate_hypotenuse,
+#     "aspect": calculate_aspect,
+#     "units": 'mm',
+# }
 # TRIANGLES
 
 # This should be a series of functions that are ultimatly used by
@@ -84,6 +92,24 @@ def calculate_aspect(base, height):
     # aspect1 = base1 + "x" + height1 + aspect
     return aspect
 
+triangle_dictionary = {
+    "area": calculate_area,
+    "perimeter": calculate_perimeter,
+    "height": calculate_height,
+    "base": calculate_base,
+    "hypotenuse": calculate_hypotenuse,
+    "aspect": calculate_aspect,
+    "units": 'mm',
+}
+# triangle_dictionary["area"] = calculate_area(5,3)
+# triangle_dictionary["perimeter"] = calculate_perimeter(5,3)
+# triangle_dictionary["height"] = calculate_height(3)
+# triangle_dictionary["base"] = calculate_base(5)
+# triangle_dictionary["hypotenuse"] = calculate_hypotenuse(5,3)
+# triangle_dictionary["aspect"] = calculate_aspect(5,3)
+# triangle_dictionary["units"] = 'mm'
+print(triangle_dictionary)
+
 # tri_dict = {}
 # area = calculate_area(base, height)
 # perimeter = calculate_perimeter(base, height)
@@ -99,15 +125,6 @@ def calculate_aspect(base, height):
 # Make sure you reuse the functions you've already got
 # Don't reinvent the wheel
 
-triangle_dictionary = {
-    "area": calculate_area,
-    "perimeter": calculate_perimeter,
-    "height": calculate_height,
-    "base": calculate_base,
-    "hypotenuse": calculate_hypotenuse,
-    "aspect": calculate_aspect,
-    "units": 'mm',
-}
 
 def get_triangle_facts(base, height, units="mm"):
     return triangle_dictionary
@@ -218,5 +235,6 @@ def list_of_words_with_lengths(list_of_lengths):
 
 
 if __name__ == "__main__":
-   do_bunch_of_bad_things()
+#    do_bunch_of_bad_things()
+    triangle_master(4,5,True,False)
 #     wordy_pyramid("a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
