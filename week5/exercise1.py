@@ -16,20 +16,16 @@ you'll need to figure out for yourself what to do.
 """
 import math
 
-
 # return a list of countdown messages, much like in the bad function above.
 # It should say something different in the last message.
 def countdown(message, start, stop, completion_message):
-    print("Getting ready to start in 9")
-    print("Getting ready to start in 8")
-    print("Getting ready to start in 7")
-    print("Getting ready to start in 6")
-    print("Getting ready to start in 5")
-    print("Getting ready to start in 4")
-    print("Getting ready to start in 3")
-    print("Getting ready to start in 2")
-    print("Getting ready to start in 1")
-    print("Let's go!")
+    if stop>start:
+        new_start = stop
+        new_stop = start
+        for i in range((new_start-1), (new_stop-1), -1):
+            print(message + " " + str(i))
+    for i in range((start - 1), (stop-1), -1):
+        print(message + " " + str(i))
 
 def calculate_hypotenuse(base, height):
     hypotenuse = math.sqrt(base ** 2 + height ** 2)
@@ -61,20 +57,19 @@ def calculate_aspect(base, height):
 
 
 def get_triangle_facts(base, height, units="mm"):
-    pass
-    # area = calculate_area(base, height)
-    # perimeter = calculate_perimeter(base, height)
-    # hypotenuse = calculate_hypotenuse(base, height)
-    # aspect = calculate_aspect(base, height)
-    # return {
-    #     "area": area,
-    #     "perimeter": perimeter,
-    #     "height": height,
-    #     "base": base,
-    #     "hypotenuse": hypotenuse,
-    #     "aspect": aspect,
-    #     "units": units,
-    # }
+    area = calculate_area(base, height)
+    perimeter = calculate_perimeter(base, height)
+    hypotenuse = calculate_hypotenuse(base, height)
+    aspect = calculate_aspect(base, height)
+    return {
+        "area": area,
+        "aspect": aspect,
+        "base": base,
+        "height": height,
+        "hypotenuse": hypotenuse,
+        "perimeter": perimeter,
+        "units": units,
+    }
 
 # this should return a multi line string that looks a bit like this:
 
@@ -124,10 +119,7 @@ def tell_me_about_this_right_triangle(facts_dictionary):
         "It has a perimeter of {perimeter}{units}\n"
         "This is a {aspect} triangle.\n"
     )
-    # facts = pattern.format(**facts_dictionary)
-    # tall1 = tall.format(**facts_dictionary)
-    # wide1 = wide.format(**facts_dictionary)
-    # equal1 = equal.format(**facts_dictionary)
+
     # if facts_dictionary.values() == "tall":
     #     return tall1 and facts
     # elif facts_dictionary.values() == "wide":
