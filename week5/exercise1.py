@@ -26,6 +26,7 @@ def countdown(message, start, stop, completion_message):
             print(message + " " + str(i))
     for i in range((start - 1), (stop-1), -1):
         print(message + " " + str(i))
+    print("Staaaaarrttiiing..... NOW!")
 
 def calculate_hypotenuse(base, height):
     hypotenuse = math.sqrt(base ** 2 + height ** 2)
