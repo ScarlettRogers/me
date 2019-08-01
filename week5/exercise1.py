@@ -19,14 +19,9 @@ import math
 # return a list of countdown messages, much like in the bad function above.
 # It should say something different in the last message.
 def countdown(message, start, stop, completion_message):
-    if stop>start:
-        new_start = stop
-        new_stop = start
-        for i in range((new_start-1), (new_stop-1), -1):
-            print(message + " " + str(i))
-    for i in range((start - 1), (stop-1), -1):
+    for i in range((start), (stop-1), -1):
         print(message + " " + str(i))
-    print("Staaaaarrttiiing..... NOW!")
+    print(completion_message)
 
 def calculate_hypotenuse(base, height):
     hypotenuse = math.sqrt(base ** 2 + height ** 2)
@@ -72,6 +67,54 @@ def get_triangle_facts(base, height, units="mm"):
         "units": units,
     }
 
+def triangle_diagram(base, height):
+    triangle_dictionary = get_triangle_facts(base, height, units="mm")
+    area = triangle_dictionary.get("area")
+    aspect = triangle_dictionary.get("aspect")
+    base = triangle_dictionary.get("base")
+    height = triangle_dictionary.get("height")
+    hypotenuse = triangle_dictionary.get("hypotenuse")
+    perimeter = triangle_dictionary.get("perimeter")
+    units = triangle_dictionary.get("units")
+    tall = """
+            {height}
+            |
+            |     |\\
+            |____>| \\  {hypotenuse}
+                  |  \\
+                  |   \\
+                  ------
+                  {base}""".format(height=height,hypotenuse=hypotenuse,base=base)
+    wide = """
+            {hypotenuse}
+             ↓         ∕ |
+                   ∕     | <-{height}
+               ∕         |
+            ∕------------|
+              {base}""".format(hypotenuse=hypotenuse,height=height,base=base)
+    equal = """
+            {height}
+            |
+            |     |⋱
+            |____>|  ⋱ <-{hypotenuse}
+                  |____⋱
+                  {base}""".format(height=height,hypotenuse=hypotenuse,base=base)
+
+    pattern = (
+        "This triangle is {area}{units}²\n"
+        "It has a perimeter of {perimeter}{units}\n"
+        "This is a {aspect} triangle.\n"
+    ).format(area=area,units=units,perimeter=perimeter,aspect=aspect)
+
+    if aspect == 'tall':
+        return tall
+        return pattern
+    if aspect == 'wide':
+        return wide
+        return pattern
+    if aspect == 'equal':
+        return equal
+        return pattern
 # this should return a multi line string that looks a bit like this:
 
 # 15
@@ -129,15 +172,14 @@ def tell_me_about_this_right_triangle(facts_dictionary):
     #     return equal1 and facts
 
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
-    # dictionary = get_triangle_facts(base, height, units="mm")
-    # diagram = tell_me_about_this_right_triangle(get_triangle_facts)
+    diagram = triangle_diagram(base, height)
+    dictionary = get_triangle_facts(base, height, units="mm")
     if return_diagram and return_dictionary:
-        # return diagram and dictionary
-        return None
+        return diagram and dictionary
     elif return_diagram:
-        return None #diagram
+        return diagram
     elif return_dictionary:
-        return None #dictionary
+        return dictionary
     else:
         print("You're an odd one, you don't want anything!")
 

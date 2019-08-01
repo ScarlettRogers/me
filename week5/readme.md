@@ -28,3 +28,7 @@ def do_bunch_of_bad_things():
     swap them if necessary
     get to the end and then repeat until all values are sorted correctly
     
+
+    string.format() --> formats string, replaces {} with given characters
+    dictionary.get(key) --> value from certain key? (check this)
+    dictionary.values() --> all values
