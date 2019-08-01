@@ -31,42 +31,6 @@ def countdown(message, start, stop, completion_message):
     print("Getting ready to start in 1")
     print("Let's go!")
 
-
-
-#     "area": calculate_area,
-#     "perimeter": calculate_perimeter,
-#     "height": calculate_height,
-#     "base": calculate_base,
-#     "hypotenuse": calculate_hypotenuse,
-#     "aspect": calculate_aspect,
-#     "units": 'mm',
-# }
-# TRIANGLES
-
-# This should be a series of functions that are ultimatly used by
-# triangle_master
-# It should eventually return a dictionary of triangle facts. It should
-# optionally print information as a nicely formatted string. Make printing
-# turned off by default but turned on with an optional argument.
-# The stub functions are made for you, and each one is tested, so this should
-# hand hold quite nicely.
-
-    # triangle_dictionary = {
-    #     "area": area,
-    #     "perimeter": perimeter,
-    #     "height": height,
-    #     "base": base,
-    #     "hypotenuse": hypotenuse,
-    #     "aspect": aspect,
-    #     "units": units,
-    # }
-
-def calculate_height(height):
-    return height
-
-def calculate_base(base):
-    return base
-
 def calculate_hypotenuse(base, height):
     hypotenuse = math.sqrt(base ** 2 + height ** 2)
     return hypotenuse
@@ -87,48 +51,30 @@ def calculate_aspect(base, height):
         aspect = 'wide'
     else:
         aspect = 'equal'
+    return aspect
     # height1 = str(height)
     # base1 = str(base)
     # aspect1 = base1 + "x" + height1 + aspect
-    return aspect
-
-triangle_dictionary = {
-    "area": calculate_area,
-    "perimeter": calculate_perimeter,
-    "height": calculate_height,
-    "base": calculate_base,
-    "hypotenuse": calculate_hypotenuse,
-    "aspect": calculate_aspect,
-    "units": 'mm',
-}
-# triangle_dictionary["area"] = calculate_area(5,3)
-# triangle_dictionary["perimeter"] = calculate_perimeter(5,3)
-# triangle_dictionary["height"] = calculate_height(3)
-# triangle_dictionary["base"] = calculate_base(5)
-# triangle_dictionary["hypotenuse"] = calculate_hypotenuse(5,3)
-# triangle_dictionary["aspect"] = calculate_aspect(5,3)
-# triangle_dictionary["units"] = 'mm'
-print(triangle_dictionary)
-
-# tri_dict = {}
-# area = calculate_area(base, height)
-# perimeter = calculate_perimeter(base, height)
-# hypotenuse = calculate_hypotenuse(base, height)
-# aspect = calculate_aspect(base, height)
-# tri_dict.update({"area":area})
-# tri_dict.update({"perimeter":perimeter})
-# tri_dict.update({"height":height})
-# tri_dict.update({"base":base})
-# tri_dict.update({"hypotenuse":hypotenuse})
-# tri_dict.update({"aspect":aspect})
 
 # Make sure you reuse the functions you've already got
 # Don't reinvent the wheel
 
 
 def get_triangle_facts(base, height, units="mm"):
-    return triangle_dictionary
-
+    pass
+    # area = calculate_area(base, height)
+    # perimeter = calculate_perimeter(base, height)
+    # hypotenuse = calculate_hypotenuse(base, height)
+    # aspect = calculate_aspect(base, height)
+    # return {
+    #     "area": area,
+    #     "perimeter": perimeter,
+    #     "height": height,
+    #     "base": base,
+    #     "hypotenuse": hypotenuse,
+    #     "aspect": aspect,
+    #     "units": units,
+    # }
 
 # this should return a multi line string that looks a bit like this:
 
@@ -178,52 +124,61 @@ def tell_me_about_this_right_triangle(facts_dictionary):
         "It has a perimeter of {perimeter}{units}\n"
         "This is a {aspect} triangle.\n"
     )
-
     # facts = pattern.format(**facts_dictionary)
-
-dictionary = get_triangle_facts
-diagram = tell_me_about_this_right_triangle
+    # tall1 = tall.format(**facts_dictionary)
+    # wide1 = wide.format(**facts_dictionary)
+    # equal1 = equal.format(**facts_dictionary)
+    # if facts_dictionary.values() == "tall":
+    #     return tall1 and facts
+    # elif facts_dictionary.values() == "wide":
+    #     return wide1 and facts
+    # elif facts_dictionary.values() == "equal":
+    #     return equal1 and facts
 
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
+    # dictionary = get_triangle_facts(base, height, units="mm")
+    # diagram = tell_me_about_this_right_triangle(get_triangle_facts)
     if return_diagram and return_dictionary:
-        return dictionary and diagram
+        # return diagram and dictionary
+        return None
     elif return_diagram:
-        return diagram
+        return None #diagram
     elif return_dictionary:
-        return dictionary
+        return None #dictionary
     else:
         print("You're an odd one, you don't want anything!")
+
 
 
 def wordy_pyramid(api_key):
     import requests
     pass
 
-#     baseURL = (
-#         "http://api.wordnik.com/v4/words.json/randomWords?"
-#         "api_key={api_key}"
-#         "&minLength={length}"
-#         "&maxLength={length}"
-#         "&limit=1"
-#     )
-#     pyramid_list = []
-#     for i in range(3, 21, 2):
-#         url = baseURL.format(api_key="", length=i)
-#         r = requests.get(url)
-#         if r.status_code is 200:
-#             message = r.json()[0]["word"]
-#             pyramid_list.append(message)
-#         else:
-#             print("failed a request", r.status_code, i)
-#     for i in range(20, 3, -2):
-#         url = baseURL.format(api_key="", length=i)
-#         r = requests.get(url)
-#         if r.status_code is 200:
-#             message = r.json()[0]["word"]
-#             pyramid_list.append(message) 
-#         else:
-#             print("failed a request", r.status_code, i)
-#     return pyramid_list
+    # baseURL = (
+    #     "http://api.wordnik.com/v4/words.json/randomWords?"
+    #     "api_key={api_key}"
+    #     "&minLength={length}"
+    #     "&maxLength={length}"
+    #     "&limit=1"
+    # )
+    # pyramid_list = []
+    # for i in range(3, 21, 2):
+    #     url = baseURL.format(api_key="", length=i)
+    #     r = requests.get(url)
+    #     if r.status_code is 200:
+    #         message = r.json()[0]["word"]
+    #         pyramid_list.append(message)
+    #     else:
+    #         print("failed a request", r.status_code, i)
+    # for i in range(20, 3, -2):
+    #     url = baseURL.format(api_key="", length=i)
+    #     r = requests.get(url)
+    #     if r.status_code is 200:
+    #         message = r.json()[0]["word"]
+    #         pyramid_list.append(message) 
+    #     else:
+    #         print("failed a request", r.status_code, i)
+    # return pyramid_list
 
 
 def get_a_word_of_length_n(length):
@@ -235,6 +190,5 @@ def list_of_words_with_lengths(list_of_lengths):
 
 
 if __name__ == "__main__":
-#    do_bunch_of_bad_things()
-    triangle_master(4,5,True,False)
-#     wordy_pyramid("a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+    # do_bunch_of_bad_things()
+    wordy_pyramid("a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")

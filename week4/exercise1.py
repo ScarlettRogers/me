@@ -85,8 +85,17 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &minLength=
     """
-    pass
-
+    # URL = https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength=4
+    pyramidList_1 = []
+    pyramidList_2 = []
+    for i in range(4, 20, 2):
+        r = requests.get('https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength=' + str(i))
+        pyramidList_1.insert(0, r.text)
+    for i in range(3, 20, 2):
+        r = requests.get('https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength=' + str(i))
+        pyramidList_2.append(r.text)
+    Final_Pyramid = pyramidList_2 + pyramidList_1
+    return Final_Pyramid
 
 def pokedex(low=1, high=5):
     """ Return the name, height and weight of the tallest pokemon in the range low to high.

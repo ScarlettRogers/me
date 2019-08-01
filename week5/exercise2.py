@@ -61,7 +61,6 @@ def italian_dinner(axiom="tomatoes", guard=6):
     else:
         return new_string
 
-
 def italian_rules(word):
     """Substitution rules to make Italian recipes."""
     if word == "tomatoes":
@@ -74,7 +73,7 @@ def italian_rules(word):
         return "yummy and delicious tomatoes and pasta"
     else:
         return word
-
+    pass
 
 def abba(source="abba", guard=3):
     """Recursively replace letters acording to the rules.
@@ -86,20 +85,35 @@ def abba(source="abba", guard=3):
 
                    abba
                     to
-               bbaaob aobbba
+               bbaa o baobbba
                     to
-    aob aobbba bbaoa aobbba oaaobaob aobbba
+    aob aob bba bba oa aob bba oa aob aob aob bba
                 and so on...
     """
-    # axiom=source
-    # parts = axiom.split(" ")
-    # result = list(map(source, parts))
-    # print(result)
-    # # new_string = " ".join(result)
-    if guard > 0:
-        return source
+
+    # source = source.replace('o', 'x')
+    # source = source.replace('a', 'y')
+    # source = source.replace('b', 'z')
+    # wordthing= list(source)
+    # list_word = source.split()
+    # something = list(map(apply_rules, list_word))
+    # print(something)
+    # new_string = ''.join(something)
+    # guard-= 1
+    # if guard >0:
+    #     return apply_rules(new_string, guard)
     # else:
     #     return new_string
+
+    guard = int(guard)
+    for i in range(guard, 0, -1):
+         source = source.replace('o', '@')
+         source = source.replace('a', '$')
+         source = source.replace('b', '#')
+         source = source.replace('$', 'bba')
+         source = source.replace('#', 'aob')
+         source = source.replace('@', 'oa')
+    return source
 
     def apply_rules(letter, guard):
         """Control the substitution.
@@ -108,17 +122,27 @@ def abba(source="abba", guard=3):
 
         Hint: when guard == -1 return the letter.
         """
-        if letter == "a":
-            return "a"
-        elif letter == "b":
-            return "b"
-        elif letter == "o":
-            return "o"
+        if letter == "a": 
+            return "bba"
+        elif letter == "b": 
+            return "aob"
+        elif letter == "o": 
+            return "oa"
         else:
             return letter
+        
+    # print(source)
+    # guard = int(guard) - 1
+    # for i in range(guard, 0, -1):
+    #     source = source.replace('o', 'x')
+    #     source = source.replace('a', 'y')
+    #     source = source.replace('b', 'z')
+    #     source = source.replace('y', 'bba')
+    #     source = source.replace('z', 'aob')
+    #     source = source.replace('x', 'oa')
+    #     return source
 
     # write the rest of the function here
-    pass
 
 
 def koch(t, order, size):
@@ -153,7 +177,7 @@ def draw_koch(drawing_method, steps_deep=4):
 
 
 def square_koch(t, order, size):
-    r"""Draw a koch curve with a square rather than a triangular point.
+    """Draw a koch curve with a square rather than a triangular point.
 
            _
     e.g. _| |_ rather than _/\_
@@ -183,5 +207,5 @@ if __name__ == '__main__':
     print(draw_koch(drawing_method=square_koch, steps_deep=4))
     print(draw_koch(drawing_method=koch, steps_deep=2))
     print("AB:", abba())
-    print("ID:", str(italian_dinner()))
+    # print("ID:", str(italian_dinner()))
     pass
