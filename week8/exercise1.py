@@ -193,16 +193,28 @@ def fast_filler(number_of_words=200):
     """
     import os
     import json
+    import random
 
-    words = random_filler_text(number_of_words)
-    if os.path.isfile(dict_racey.json) == True:
-        data = json.loads(dict_racey.json)
+    a_thing = json.dump(words, f)
+    
+    if os.path.isfile('dict_racey.json') == True:
+        data = json.loads('dict_racey.json')
         return data
     else:
-        open(dict_racey.json, 'x')
-        with open (dict_racey.json, 'w') as f:
-            json.dump(words, f)
-        return words
+        list_store = []
+        a_thing = make_filler_text_dictionary()
+        for i in range(number_of_words):
+            rand_number_key = random.randint(3, 7)
+            rand_number_values = random.randint(0, 2)
+            word = a_thing[rand_number_key][rand_number_values]
+            list_store.append(word)
+        joined_list = (" ").join(list_store)    
+
+        # json.dump(word)
+        # with open('dict_racey.json', 'w') as f:
+        return a_thing  
+            # f.write(words)
+        # return words
     # the_paragraph = make_filler_text_dictionary(number of words)
     # my_data_file = open('dict_racey.json', 'x')
     #     my_data_file.write(the_paragraph)
