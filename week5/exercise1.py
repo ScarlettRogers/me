@@ -66,7 +66,7 @@ def get_triangle_facts(base, height, units="mm"):
         "perimeter": perimeter,
         "units": units,
     }
-
+""""
 def triangle_diagram(base, height):
     triangle_dictionary = get_triangle_facts(base, height, units="mm")
     area = triangle_dictionary.get("area")
@@ -76,29 +76,6 @@ def triangle_diagram(base, height):
     hypotenuse = triangle_dictionary.get("hypotenuse")
     perimeter = triangle_dictionary.get("perimeter")
     units = triangle_dictionary.get("units")
-    tall = """
-            {height}
-            |
-            |     |\\
-            |____>| \\  {hypotenuse}
-                  |  \\
-                  |   \\
-                  ------
-                  {base}""".format(height=height,hypotenuse=hypotenuse,base=base)
-    wide = """
-            {hypotenuse}
-             ↓         ∕ |
-                   ∕     | <-{height}
-               ∕         |
-            ∕------------|
-              {base}""".format(hypotenuse=hypotenuse,height=height,base=base)
-    equal = """
-            {height}
-            |
-            |     |⋱
-            |____>|  ⋱ <-{hypotenuse}
-                  |____⋱
-                  {base}""".format(height=height,hypotenuse=hypotenuse,base=base)
 
     pattern = (
         "This triangle is {area}{units}²\n"
@@ -119,10 +96,10 @@ def triangle_diagram(base, height):
 
 # 15
 # |
-# |     |\
+# |     |
 # |____>| \  17.0
-#       |  \
-#       |   \
+#       |  
+#       |   
 #       ------
 #       8
 # This triangle is 60.0mm²
@@ -130,7 +107,7 @@ def triangle_diagram(base, height):
 # This is a tall triangle.
 
 # but with the values and shape that relate to the specific
-# triangle we care about.
+# triangle we care about."""
 
 
 def tell_me_about_this_right_triangle(facts_dictionary):
@@ -163,23 +140,30 @@ def tell_me_about_this_right_triangle(facts_dictionary):
         "It has a perimeter of {perimeter}{units}\n"
         "This is a {aspect} triangle.\n"
     )
-
-    # if facts_dictionary.values() == "tall":
-    #     return tall1 and facts
-    # elif facts_dictionary.values() == "wide":
-    #     return wide1 and facts
-    # elif facts_dictionary.values() == "equal":
-    #     return equal1 and facts
-
+    area = calculate_area
+    perimeter = calculate_perimeter
+    aspect = calculate_aspect
+    if facts_dictionary["aspect"] == "tall":
+        diagram = tall.format(**facts_dictionary)
+    elif facts_dictionary["aspect"] == "wide":
+        diagram = wide.format(**facts_dictionary)
+    elif facts_dictionary["aspect"] == "equal":
+        diagram = equal.format(**facts_dictionary)
+    else:
+        None
+    facts = pattern.format(**facts_dictionary)
+    final = diagram + "/n" + facts
+    return final
+    
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
-    diagram = triangle_diagram(base, height)
-    dictionary = get_triangle_facts(base, height, units="mm")
+    dictionary1 = get_triangle_facts(base, height, units="mm")
+    diagram1 = tell_me_about_this_right_triangle(dictionary1)
     if return_diagram and return_dictionary:
-        return diagram and dictionary
+        return diagram1 and dictionary1
     elif return_diagram:
-        return diagram
+        return diagram1
     elif return_dictionary:
-        return dictionary
+        return dictionary1
     else:
         print("You're an odd one, you don't want anything!")
 
