@@ -166,25 +166,15 @@ def random_filler_text(number_of_words=200):
         see line 77 of week4/hangman_leadboard.py for an example.
     """
     import random
-    random_number = random.randint(3, 7)
-    random_number2 = random.randint(3, 7)
-    random_number3 = random.randint(3, 7)
-    random_number4 = random.randint(3, 7)
-    random_number5 = random.randint(3, 7)
-    random_number6 = random.randint(3, 7)
-    random_number7 = random.randint(3, 7)
-    random_number8 = random.randint(3, 7)
-    random_number9 = random.randint(3, 7)
-    print(random_number)
-    print(random_number2)
-    print(random_number3)
-    print(random_number4)
-    print(random_number5)
-    print(random_number6)
-    print(random_number7)
-    print(random_number8)
-    print(random_number9)
-    return ""
+    list_store = []
+    a_thing = make_filler_text_dictionary()
+    for i in range(number_of_words):
+        rand_number_key = random.randint(3, 7)
+        rand_number_values = random.randint(0, 2)
+        word = a_thing[rand_number_key][rand_number_values]
+        list_store.append(word)
+    joined_list = (" ").join(list_store)    
+    return joined_list
 
 
 def fast_filler(number_of_words=200):
@@ -201,9 +191,25 @@ def fast_filler(number_of_words=200):
 
     If you get this one to work, you are a Very Good Programmer™!
     """
+    import os
+    import json
+
+    words = random_filler_text(number_of_words)
+    if os.path.isfile(dict_racey.json) == True:
+        data = json.loads(dict_racey.json)
+        return data
+    else:
+        open(dict_racey.json, 'x')
+        with open (dict_racey.json, 'w') as f:
+            json.dump(words, f)
+        return words
+    # the_paragraph = make_filler_text_dictionary(number of words)
+    # my_data_file = open('dict_racey.json', 'x')
+    #     my_data_file.write(the_paragraph)
+    
 
     # return paragraph
-    pass
+    
 
 
 if __name__ == "__main__":
