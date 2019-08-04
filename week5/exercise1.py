@@ -66,32 +66,7 @@ def get_triangle_facts(base, height, units="mm"):
         "perimeter": perimeter,
         "units": units,
     }
-""""
-def triangle_diagram(base, height):
-    triangle_dictionary = get_triangle_facts(base, height, units="mm")
-    area = triangle_dictionary.get("area")
-    aspect = triangle_dictionary.get("aspect")
-    base = triangle_dictionary.get("base")
-    height = triangle_dictionary.get("height")
-    hypotenuse = triangle_dictionary.get("hypotenuse")
-    perimeter = triangle_dictionary.get("perimeter")
-    units = triangle_dictionary.get("units")
 
-    pattern = (
-        "This triangle is {area}{units}²\n"
-        "It has a perimeter of {perimeter}{units}\n"
-        "This is a {aspect} triangle.\n"
-    ).format(area=area,units=units,perimeter=perimeter,aspect=aspect)
-
-    if aspect == 'tall':
-        return tall
-        return pattern
-    if aspect == 'wide':
-        return wide
-        return pattern
-    if aspect == 'equal':
-        return equal
-        return pattern
 # this should return a multi line string that looks a bit like this:
 
 # 15
@@ -107,7 +82,7 @@ def triangle_diagram(base, height):
 # This is a tall triangle.
 
 # but with the values and shape that relate to the specific
-# triangle we care about."""
+# triangle we care about.
 
 
 def tell_me_about_this_right_triangle(facts_dictionary):
@@ -152,18 +127,18 @@ def tell_me_about_this_right_triangle(facts_dictionary):
     else:
         None
     facts = pattern.format(**facts_dictionary)
-    final = diagram + "/n" + facts
+    final = (diagram + "/n" + facts)
     return final
     
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
-    dictionary1 = get_triangle_facts(base, height, units="mm")
-    diagram1 = tell_me_about_this_right_triangle(dictionary1)
-    if return_diagram and return_dictionary:
-        return diagram1 and dictionary1
-    elif return_diagram:
-        return diagram1
-    elif return_dictionary:
-        return dictionary1
+    dictionary = get_triangle_facts(base, height)
+    diagram = tell_me_about_this_right_triangle(dictionary)
+    if return_diagram == True and return_dictionary == True:
+        return {"diagram": diagram, "dictionary": dictionary}
+    elif return_diagram == True:
+        return diagram
+    elif return_dictionary == True:
+        return dictionary
     else:
         print("You're an odd one, you don't want anything!")
 
