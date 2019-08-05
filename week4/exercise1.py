@@ -90,7 +90,7 @@ def wordy_pyramid():
     pyramidList_1 = []
     pyramidList_2 = []
 
-    for i in range(4, 20, 2):
+    for i in range(4, 22, 2):
         r = requests.get('https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength=' + str(i))
         pyramidList_1.insert(0, r.text)
         
@@ -127,8 +127,22 @@ def pokedex(low=1, high=5):
          get very long. If you are accessing a thing often, assign it to a
          variable and then future access will be easier.
     """
-    template = "https://pokeapi.co/api/v2/pokemon/{id}"
-    pass
+    template = "https://pokeapi.co/api/v2/pokemon/"
+    biggest_int = 0
+    biggest_name = 0
+    biggest_h = 0
+    biggest_w = 0
+    for i in range(low, high+1):
+        pokemon = requests.get(template + str(i))
+        pokemon = pokemon.text
+        temp_num = pokemon.get('height')
+        if temp_num > biggest_h:
+            biggest_int = i
+            biggest_name = pokemon.get('name')
+            biggest_h = temp_num
+            biggest_w = pokemon.get('weight')
+
+
     # url = template.format(base=base, id=5)
     # r = requests.get(url)
     # if r.status_code is 200:
@@ -149,11 +163,17 @@ def diarist():
     TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
          the test will have nothing to look at.
     """
-    f = open(Trispokedovetiles(laser).gcode)
-    for x in f:
-        print(x)
+    count = 0
+    r = open(Trispokedovetiles(laser).gcode)
+    with open('lasers.pew', 'w') as f:
+        for x in r:
+            if x == 'M10 P1':
+                count += 1
+    count = str(count)
+    f.write(count)
     f.close()
-
+    r.close()
+    return lasers.pew
 
 if __name__ == "__main__":
     functions = [
