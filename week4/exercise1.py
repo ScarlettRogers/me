@@ -165,14 +165,13 @@ def diarist():
     # pass
     count = 0
     r = open('Trispokedovetiles(laser).gcode')
-    with open('lasers.pew', 'w') as f:
-        a_file = json.load('lasers.pew')
-        for x in r:
-            if x == 'M10 P1':
-                count += 1
-        count = str(count)
-        f.write(count)
-        f.close()
+    for x in r:
+        if x == 'M10 P1':
+            count += 1
+    f = open('lasers.pew', 'w')  
+        # count = str(count)
+    f.write(count)
+    f.close()
     r.close()
     
 
