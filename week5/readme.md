@@ -32,3 +32,8 @@ def do_bunch_of_bad_things():
     string.format() --> formats string, replaces {} with given characters
     dictionary.get(key) --> value from certain key? (check this)
     dictionary.values() --> all values
+
+    pets_series = [put a list of pet names here]
+    pattern_of_bools = ["o" in x for x in pets_series] --> searches the list for words containing 'o'
+    print(pattern_of_bools)
+    pets_series(pattern_of_bools) --> gives a list of the corresponding items in the list to the boolean pattern of bools

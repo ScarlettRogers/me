@@ -132,22 +132,21 @@ def pokedex(low=1, high=5):
     biggest_name = 0
     biggest_h = 0
     biggest_w = 0
-    for i in range(low, high+1):
+    for i in range(low, high):
         pokemon = requests.get(template + str(i))
-        pokemon = pokemon.text
-        temp_num = pokemon.get('height')
+        info = json.loads(pokemon.text)
+        temp_num = info["height"]
         if temp_num > biggest_h:
             biggest_int = i
-            biggest_name = pokemon.get('name')
+            biggest_name = info["name"]
             biggest_h = temp_num
-            biggest_w = pokemon.get('weight')
-
-
+            biggest_w = info["weight"]
+    return {"name": biggest_name, "weight": biggest_w, "height": biggest_h}
     # url = template.format(base=base, id=5)
     # r = requests.get(url)
     # if r.status_code is 200:
     #     the_json = json.loads(r.text)
-    # return {"name": None, "weight": None, "height": None}
+    
 
 
 def diarist():

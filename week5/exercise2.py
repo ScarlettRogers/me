@@ -159,6 +159,7 @@ def koch(t, order, size):
         t.left(60)
         trace += koch(t, order-1, size/3)
     return str(order) + trace
+    
 
 
 def draw_koch(drawing_method, steps_deep=4):
@@ -175,6 +176,19 @@ def draw_koch(drawing_method, steps_deep=4):
     trace = drawing_method(raphael, order=steps_deep, size=600)
     return trace
 
+    #     trace = ""
+    # if order == 0:          # The base case is just a straight line
+    #     t.forward(size)
+    # else:
+    #     trace += koch(t, order-1, size/3)   # Go 1/3 of the way
+    #     t.left(60)
+    #     trace += koch(t, order-1, size/3)
+    #     t.right(120)
+    #     trace += koch(t, order-1, size/3)
+    #     t.left(60)
+    #     trace += koch(t, order-1, size/3)
+    # return str(order) + trace
+
 
 def square_koch(t, order, size):
     """Draw a koch curve with a square rather than a triangular point.
@@ -186,9 +200,25 @@ def square_koch(t, order, size):
 
     """
     trace = ""
-    # write the rest of the function here.
+    if order == 0:          # The base case is just a straight line
+        t.forward(size)
+    else:
+        trace += square_koch(t, order-1, size/3)   # Go 1/3 of the way
+        t.left(90)
+        trace += square_koch(t, order-1, size/3)
+        t.right(90)
+        trace += square_koch(t, order-1, size/3)
+        t.right(90)
+        trace += square_koch(t, order-1, size/3)
+        t.left(90)
+        trace += square_koch(t, order-1, size/3)
     return str(order) + trace
-    pass
+
+    
+    # trace = ""
+    # # write the rest of the function here.
+    # return str(order) + trace
+    # pass
 
 
 def draw_square(steps=4):

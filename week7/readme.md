@@ -49,10 +49,6 @@ some_numbers[(some_numbers < 4)] | (some_numbers > 97)]
 displays numbers less than 4 and greater than 97
 Needs round brackets, 'nobody' knows why
 
-pets_series = [put a list of pet names here]
-pattern_of_bools = ["o" in x for x in pets_series] --> searches the list for words containing 'o'
-print(pattern_of_bools)
-pets_series(pattern_of_bools) --> gives a list of the corresponding items in the list to the boolean pattern of bools
 
 the first in says is one thing in another thing
 the second is like in a for loop
