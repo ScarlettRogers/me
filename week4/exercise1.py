@@ -165,14 +165,20 @@ def diarist():
     # pass
     count = 0
     r = open('Trispokedovetiles(laser).gcode')
-    for x in r:
-        if x == 'M10 P1':
+    for x in r: 
+        if x == 'M10 P1': 
             count += 1
     f = open('lasers.pew', 'w')  
         # count = str(count)
     f.write(count)
     f.close()
     r.close()
+
+    # lasers = open('lasers.pew', 'w')
+    # gcode = open('Trispokedovetiles(laser).gcode').read()
+    # count = str(gcode.count("M10 P1"))
+    # lasers.write(count)
+    # lasers.close()
     
 
 if __name__ == "__main__":
