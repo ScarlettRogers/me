@@ -162,17 +162,18 @@ def diarist():
     TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
          the test will have nothing to look at.
     """
-    count = 0
-    r = open(Trispokedovetiles(laser).gcode)
-    with open('lasers.pew', 'w') as f:
-        for x in r:
-            if x == 'M10 P1':
-                count += 1
-    count = str(count)
-    f.write(count)
-    f.close()
-    r.close()
-    return lasers.pew
+    pass
+    # count = 0
+    # r = open(Trispokedovetiles(laser).gcode)
+    # with open('lasers.pew', 'w') as f:
+    #     for x in r:
+    #         if x == 'M10 P1':
+    #             count += 1
+    # count = str(count)
+    # f.write(count)
+    # f.close()
+    # r.close()
+    # return lasers.pew
 
 if __name__ == "__main__":
     functions = [
